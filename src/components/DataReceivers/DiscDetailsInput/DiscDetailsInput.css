@@ -1,0 +1,57 @@
+.discDetailsInputDiv{
+	background-color: #015F97;
+	box-shadow: 1px 1px  darkgrey;
+	width: 500px;
+	height: 120px;
+	word-wrap: break-word;
+	margin: 5px;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.discDetailsInputColorBlue{
+	background-color: #015F97
+}
+
+.discDetailsInputColorGreen{
+	background-color: #008E35
+}
+
+.discDetailsInputP{
+	margin: 0px 10px 0px 0px;
+	color: white;
+	font-weight: bold;
+
+}
+
+.discDetailsInlineDiv{
+	display: inline
+}
+
+.discDetailsInputInput{
+	width: 60px;
+	height: 40px;
+	border-radius: 7px;
+	padding: 10px;
+}
+
+.discDetailsInputHoras{
+	width: 55px;
+	height: 40px;
+	border-radius: 7px;
+	padding: 10px;
+	-webkit-appearance: none; 
+}
+
+.discDetailsInputSemestre{
+	width: 73px;
+	height: 40px;
+	border-radius: 7px;
+	padding: 10px;
+}
+
+.discDetailsInputHoras::-webkit-inner-spin-button,
+.discDetailsInputHoras::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	margin: 0; 
+  }

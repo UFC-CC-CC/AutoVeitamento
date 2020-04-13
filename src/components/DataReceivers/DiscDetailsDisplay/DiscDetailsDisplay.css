@@ -1,0 +1,36 @@
+.discDetailsDisplayDiv{
+	background-color: #0069D9;
+	box-shadow: 1px 1px  darkgrey;
+	width: 500px;
+	max-height: 130px;
+	word-wrap: break-word;
+	margin: 5px;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.discDetailsDisplayColorBlue{
+	background-color: #0069D9
+}
+
+.discDetailsDisplayColorGreen{
+	background-color: #54c115
+}
+
+.discDetailsDisplayP{
+	margin: 0px 10px 0px 0px;
+	color: white;
+	font-weight: bold;
+
+}
+
+.discDetailsInlineDiv{
+	display: inline
+}
+
+.discDetailsDisplayInput{
+	width: 100px;
+	height: 40px;
+	border-radius: 7px;
+	padding: 10px;
+}

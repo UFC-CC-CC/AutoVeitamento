@@ -1,0 +1,5 @@
+.consultaInstGrid2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+}

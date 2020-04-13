@@ -1,0 +1,17 @@
+.multiRowDisplayTitleCell{
+    border-top: 1px solid rgba(0,0,0,.123);
+}
+
+.multiRowDisplayInlineText{
+    display: inline;
+}
+
+.multiRowDisplayTitleContainer{
+    border-bottom: 1px double rgba(0,0,0,.2);
+    padding: 0px;
+}
+
+.multiRowDisplayCardContainer{
+    margin: 10px;
+    border: 1px solid rgba(0,0,0,.2);
+}

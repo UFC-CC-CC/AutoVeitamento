@@ -1,0 +1,32 @@
+.twoColumnGrid{
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+}
+
+.inlineButtonDiv{
+	display: inline;
+}
+
+.sessionButton{
+	margin: 10px 100px 0px 0px
+}
+
+.opaque{
+	background-color: white;
+	padding: 100px;
+}
+
+.card{
+	border: 1px solid rgba(0,0,0,.2);
+	margin: 5px;
+}
+
+.blockContainer{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.blockCard{
+	margin: 5px 40px 5px 40px;
+	border: 1px solid rgba(0,0,0,.2);
+}

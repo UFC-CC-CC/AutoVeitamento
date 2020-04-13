@@ -1,0 +1,50 @@
+.nested{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 1em;
+	margin: 20px;
+}
+
+.container_eb {
+	padding: 25px;
+}
+
+.spacing_eb {
+	margin: 10px 5px 5px 5px;
+}
+
+.sel{
+	margin: 100px;
+	z-index: 10000;
+}
+
+.inst_eb{
+	text-align: center;
+	width: 80%;
+}
+
+.split_eb {
+	height: 60%;
+	width: 44%;
+	position: fixed;
+	z-index: -1;
+	top: 400px;
+	overflow-x: hidden;
+	padding-top: 20px;
+	margin: 10px;
+  }
+  
+  /* Control the left side */
+  .left_eb {
+	left: 50px;
+  }
+  
+  /* Control the right side */
+  .right_eb {
+	right: 50px;
+  }
+  
+  /* If you want the content centered horizontally and vertically */
+  .centered_eb {
+  }
+  

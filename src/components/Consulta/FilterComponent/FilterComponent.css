@@ -1,0 +1,10 @@
+.filterComponentContainer{
+    border: 1px solid rgba(0,0,0,.2);
+    margin: 15px;
+}
+.filterComponentCheckBox{
+    margin-left: 4px;
+}
+.filterComponentDesc{
+    margin-left: 20px;
+}

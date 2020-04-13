@@ -1,0 +1,12 @@
+.oneLineInlineBlock{
+    display: inline;
+}
+
+.oneLineDisplayTitleContainer{
+    border-top: 1px double rgba(0,0,0,.125);
+}
+
+.oneLineDisplayCardContainer{
+    margin: 10px;
+    border: 1px solid rgba(0,0,0,.2);
+}

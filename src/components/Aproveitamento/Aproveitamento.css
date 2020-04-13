@@ -1,0 +1,39 @@
+.wrapper{
+  display: grid;
+  /*grid-template-columns: 1fr 2fr 1fr;*/
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em; 
+}
+
+.nested{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  
+}
+
+.singleColumn{
+  display: grid;
+  /*grid-template-columns: 1fr 2fr 1fr;*/
+  grid-template-columns: 1fr;
+  grid-gap: 1em; 
+}
+
+.doubleColumn{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em; 
+}
+
+.tripleColumn{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+hr{
+  background-color: #6c757d;
+}
+
+.blocosData > p{
+	margin: 0px;
+}

@@ -1,0 +1,7 @@
+.seletor_text{
+    margin: 0.5px;
+}
+
+a:hover {
+    text-decoration: none;
+}

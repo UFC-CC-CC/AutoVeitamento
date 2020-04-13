@@ -1,0 +1,27 @@
+.superBlockCardComponentTitleElement{
+    border-bottom: 1px solid rgba(0,0,0,.123);
+}
+
+.superBlockCardComponentTitlesContainer{
+    text-align: center;
+}
+
+.superBlockCardComponentGrid3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.superBlockCardComponentGrid2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.superBlockCardComponentContainer{
+    border: 1px solid rgba(0,0,0,.2);
+}
+
+.superBlockCardComponentFlexColumn{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}

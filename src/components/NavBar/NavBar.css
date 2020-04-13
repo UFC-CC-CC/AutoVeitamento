@@ -1,0 +1,14 @@
+.borderless-btn{
+    border: 0px;
+    border-radius: 0px;
+    color: gray;
+    background-color: white;
+}
+
+.btn-alert{
+    margin: 10px;
+}
+
+.alert-container{
+    text-align: center
+}

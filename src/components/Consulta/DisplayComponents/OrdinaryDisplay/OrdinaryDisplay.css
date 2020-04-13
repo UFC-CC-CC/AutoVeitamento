@@ -1,0 +1,11 @@
+.ordinaryDisplayGridContainer{
+}
+
+.ordinaryDisplayTitleContainer{
+    border-top: 1px double rgba(0,0,0,.125);
+}
+
+.ordinaryDisplayCardContainer{
+    margin: 10px;
+    border: 1px solid rgba(0,0,0,.2);
+}

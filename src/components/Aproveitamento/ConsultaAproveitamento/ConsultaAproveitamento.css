@@ -1,0 +1,44 @@
+.threeColumnGrid{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.twoColumnGrid{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.threeColumnGrid2{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.twoColumnGrid2{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.oneColumnGrid{
+	display: grid;
+	grid-template-columns: 1fr; 
+  }
+
+.flexRow{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.consultaMarginLeft{
+	margin-left: 5px;
+}
+
+.consultaData > p{
+	margin: 0px;
+}
+
+.consultaData{
+	margin-bottom: 25px;
+}
+
+.nonBreakingP{
+	display: inline
+}

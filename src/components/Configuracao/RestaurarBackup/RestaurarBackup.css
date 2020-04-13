@@ -1,0 +1,9 @@
+.restaurarBackupGrid2{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.restaurarBackupGrid3{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
