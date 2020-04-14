@@ -5,11 +5,15 @@
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",
+    "acorn": "^6.4.1",
     "concurrently": "^4.1.0",
     "electron": "^4.1.4",
     "electron-builder": "^20.39.0",
     "electron-is-dev": "^1.1.0",
+    "handlebars": "^4.3.0",
     "jspdf": "^1.5.3",
+    "kind-of": "^6.0.3",
+    "minimist": "^0.2.1",
     "ncp": "^2.0.0",
     "node-latex": "^2.6.2",
     "react": "^16.8.6",
@@ -21,6 +25,7 @@
     "react-scripts": "2.1.8",
     "react-select": "^2.4.3",
     "redux": "^4.0.1",
+    "serialize-javascript": "^2.1.1",
     "wait-on": "^3.2.0"
   },
   "scripts": {
