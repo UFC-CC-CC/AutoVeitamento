@@ -525,7 +525,7 @@ class Aproveitamento extends Component {
                     sumOfHoursDestiny += Number(this.props.disciplinasData[this.props.configuracoes.instituicaoSelect.value][destinyDisc].horas);
                     return;
                 });
-                if(sumOfHoursOrigin <= sumOfHoursDestiny*minPer)
+                if(sumOfHoursOrigin < sumOfHoursDestiny*minPer)
                     failures.push(curr.value);
 
                 return
