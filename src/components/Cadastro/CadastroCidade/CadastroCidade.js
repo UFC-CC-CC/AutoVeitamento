@@ -35,7 +35,8 @@ class CadastroCidade extends Component {
                     value: this.state.initials,
                     label: `${this.state.initials} : ${this.state.name} - ${this.state.state}`
                 },
-                type: 'select'
+                type: 'select',
+                dataType: 'cidades'
             });    
             this.props.updateFile({
                 name: 'cidadesData',

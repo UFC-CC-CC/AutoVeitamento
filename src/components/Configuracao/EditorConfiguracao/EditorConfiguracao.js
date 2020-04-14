@@ -173,7 +173,7 @@ class EditorConfiguracao extends Component {
 
     render(){
 		if(this.state.backToMain)
-			return this.props.location&&this.props.location.state&&this.props.location.state.redirectRoute?<Redirect to={this.props.location.state.redirectRoute}/>:<Redirect to="/"/>
+			return this.props.location&&this.props.location.state&&this.props.location.state.redirectRoute?<Redirect to={{ pathname: this.props.location.state.redirectRoute, state: { inMainWindow: true }}}/>:<Redirect to="/"/>
 
 		let isOk =  !(!this.isEqual() && this.state.inst && this.state.newInst && this.state.inst.value != this.state.newInst.value);
 
@@ -237,7 +237,7 @@ class EditorConfiguracao extends Component {
 						/>
 						<SelectInput
 							id="curso"
-							type="professores"
+							type="cursos"
 							label="Curso de Destino:"
 							placeholder="Código: Sigla - Nome"
 							desc="Selecione o Curso de Destino."
