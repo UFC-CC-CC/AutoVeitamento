@@ -209,52 +209,59 @@ class Aproveitamento extends Component {
         let origin = {};
         let destiny = {};
 
-            data.map((current)=>{
-                if(this.state.inst && this.props.blocosData[this.state.inst.value] && !this.props.blocosData[this.state.inst.value][current.value])
-                    return
+            try{
+                data.map((current)=>{
+                    if(this.state.inst && this.props.blocosData[this.state.inst.value] && !this.props.blocosData[this.state.inst.value][current.value])
+                        return
 
-                origin[current.value] = {}
-                this.props.blocosData[this.state.inst.value][current.value].cursadas.map((curr)=>{
-                    origin[current.value][curr] = {
-                        id: curr,
-                        nota: 0,
-                        semestre: "",
-                        disciplina: this.props.disciplinasData[this.state.inst.value][curr]
-                    }
-                });
+                    origin[current.value] = {}
+                    this.props.blocosData[this.state.inst.value][current.value].cursadas.map((curr)=>{
+                        origin[current.value][curr] = {
+                            id: curr,
+                            nota: 0,
+                            semestre: "",
+                            disciplina: this.props.disciplinasData[this.state.inst.value][curr]
+                        }
+                    });
 
-                destiny[current.value] = {};
-                this.props.blocosData[this.state.inst.value][current.value].aproveitadas.map((curr)=>{
-                    destiny[current.value][curr] = {
-                        id: curr,
-                        nota: 0,
-                        horasApr: 0,
-                        disciplina: this.props.disciplinasData[this.props.configuracoes.instituicaoSelect.value][curr]
-                    }
+                    destiny[current.value] = {};
+                    this.props.blocosData[this.state.inst.value][current.value].aproveitadas.map((curr)=>{
+                        destiny[current.value][curr] = {
+                            id: curr,
+                            nota: 0,
+                            horasApr: 0,
+                            disciplina: this.props.disciplinasData[this.props.configuracoes.instituicaoSelect.value][curr]
+                        }
+                    });
+                    
                 });
                 
-            });
-            
-            let previousState = {...this.state};
+                let previousState = {...this.state};
 
-            for(let i in origin){
-                if(previousState.origin[i]){
-                    origin[i] = {...previousState.origin[i]}
+                for(let i in origin){
+                    if(previousState.origin[i]){
+                        origin[i] = {...previousState.origin[i]}
+                    }
                 }
+
+                for(let i in destiny){
+                    if(previousState.destiny[i]){
+                        destiny[i] = {...previousState.destiny[i]}
+                    }
+                }
+                this.setState({blocks: data,
+                              origin: origin,
+                              destiny: destiny}, ()=>{
+                                  if(callback)
+                                    callback();
+                                  this.autoFillHours();
+                            });
+            }
+            catch(e){
+                //alert("Error on aproveitamento. That one >:(")
+                setTimeout(()=>this.blockHandler(data, callback),500);
             }
 
-            for(let i in destiny){
-                if(previousState.destiny[i]){
-                    destiny[i] = {...previousState.destiny[i]}
-                }
-            }
-            this.setState({blocks: data,
-                          origin: origin,
-                          destiny: destiny}, ()=>{
-                              if(callback)
-                                callback();
-                              this.autoFillHours();
-                        });
         
     }
 
@@ -344,8 +351,14 @@ class Aproveitamento extends Component {
 
 
     generateReport = () => {
-		pdfGen.generateTestPDF(this.preprocessDataForPDF(),this.state.aluno.value+"-"+this.state.inst.value+"-")
-		alert("Relatório gerado!\nEstá disponível na pasta 'Relatórios Gerados', dentro da pasta da aplicação.");
+		try{
+            pdfGen.generateTestPDF(this.preprocessDataForPDF(),this.state.aluno.value+"-"+this.state.inst.value+"-")    
+            alert("Relatório gerado!\nEstá disponível na pasta 'Relatórios Gerados', dentro da pasta da aplicação.");
+        }
+        catch(e){
+            alert("Ocorreu um erro ao gerar o seu relatório! Por favor, verifique se o seu computador possui uma versão do LaTeX instalado.")
+        }
+        
 	}
 
     askGenerateReport = () => {

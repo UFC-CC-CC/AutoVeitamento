@@ -137,8 +137,18 @@ const pdfGen = {
 
         const dateString = currentDate.getFullYear() + "-" + ((currentDate.getMonth()+1) < 10 ?'0'+(currentDate.getMonth()+1):(currentDate.getMonth()+1)) + "-"+(currentDate.getDate() < 10? '0'+currentDate.getDate() : currentDate.getDate());
         
-        if(!fs.existsSync(`./Relatorios Gerados/${dateString}`)){
-            fs.mkdirSync(`./Relatorios Gerados/${dateString}`);
+        try{
+            if(!fs.existsSync(`./Relatorios Gerados/`)){
+                fs.mkdirSync(`./Relatorios Gerados/`);
+            }
+            if(!fs.existsSync(`./Relatorios Gerados/${dateString}`)){
+                fs.mkdirSync(`./Relatorios Gerados/${dateString}`);
+            }    
+        }
+        catch(e){
+            alert("Ocorreu um erro ao criar arquivos!")
+            alert(e.message)
+            alert(e.code)
         }
         const output = fs.createWriteStream(`./Relatorios Gerados/${dateString}/${output_file}${currentDate.getTime()}.pdf`);
         const pdf = latex(latex_text, {passes: 2});

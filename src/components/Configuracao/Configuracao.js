@@ -25,6 +25,9 @@ class Configuracao extends Component{
 		
 		const dateString = currentDate.getDate() + "-" + (currentDate.getMonth()+1) + "-"+currentDate.getFullYear() + "-" + currentDate.getTime();
 		
+		if(!fs.existsSync(`./Backups/`)){
+            fs.mkdirSync(`./Backups/`);
+        }	
 		fs.mkdir(`./Backups/${dateString}`, err => {
 				if(err){
 					alert("Can't create directory!");

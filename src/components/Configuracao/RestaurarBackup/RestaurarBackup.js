@@ -30,6 +30,12 @@ class RestaurarBackup extends Component {
 	processBackupOptions = () => {
 		const electron = window.require('electron');
 		const fs = electron.remote.require('fs');
+		if(!fs.existsSync(`./Backups/`)){
+            fs.mkdirSync(`./Backups/`);
+            return this.setState({
+	  			options: []
+	  		});
+        }
 		fs.readdir('Backups/', (err, files) => {
 		  if(err)
 		  	alert(`ERROR WHILE READING BACKUPS DIR;\nERROR CODE: ${err.code}\nERROR MESSAGE: ${err.message}`);

@@ -73,9 +73,14 @@ class ConsultaAproveitamento extends Component {
     }
 
 	generateReport = () => {
-		pdfGen.generateTestPDF(this.preprocessDataForPDF(),this.state.carriedState.aluno.value+"-"+this.state.carriedState.inst.value+"-")
-		alert("Relatório gerado!\nEstá disponível na pasta 'Relatórios Gerados', dentro da pasta da aplicação.");
-	}
+		try{
+            pdfGen.generateTestPDF(this.preprocessDataForPDF(),this.state.aluno.value+"-"+this.state.inst.value+"-")    
+            alert("Relatório gerado!\nEstá disponível na pasta 'Relatórios Gerados', dentro da pasta da aplicação.");
+        }
+        catch(e){
+            alert("Ocorreu um erro ao gerar o seu relatório! Por favor, verifique se o seu computador possui uma versão do LaTeX instalado.")
+        }
+    }
 
 	aproveitamentoHandler = (data) => {
 		this.setState({

@@ -49,8 +49,8 @@ class SelectMulti extends Component{
 			return false
 		let isOk = true;
 
-
-		for(let i in this.props.value)
+		try{
+			for(let i in this.props.value)
 			if(this.props.blocosData[this.props.inst][block.value]){
 				for(let j in this.props.blocosData[this.props.inst][block.value].cursadas){
 					if(this.props.blocosData[this.props.inst][this.props.value[i].value].cursadas.indexOf(this.props.blocosData[this.props.inst][block.value].cursadas[j]) != -1)
@@ -64,7 +64,13 @@ class SelectMulti extends Component{
 					if(this.props.blocosData[this.props.inst][this.props.value[i].value].aproveitadas.indexOf(this.props.blocosData[this.props.inst][block.value].aproveitadas[j]) != -1)
 						return true
 				}
-			}
+			}			
+		}
+		catch(e){
+			alert("Por favor, verifique a integridade do bloco de aproveitamento que foi inserido.")
+			return false
+		}
+		
 		return false
 	}
 
