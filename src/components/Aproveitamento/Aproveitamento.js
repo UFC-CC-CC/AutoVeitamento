@@ -41,10 +41,17 @@ class Aproveitamento extends Component {
         window.scrollTo(0, 0)
         if(this.state.initialDate == null && this.props.location&&this.props.location.state&&this.props.location.state.carriedState){
             this.setState(this.props.location.state.carriedState);
+            if(this.props.location.state.carriedState.inst){
+                this.props.updateSelectedInst({data: this.props.location.state.carriedState.inst});
+            }
+            if(this.props.location.state.carriedState.professor){
+                this.props.updateSelectedProf({data: this.props.location.state.carriedState.professor});
+            }
             if(!this.props.location.state.inSession)
-            this.setState({
-                isEditor: true
-            });
+                this.setState({
+                    isEditor: true
+                });
+
         }
         else{
             this.setState({
