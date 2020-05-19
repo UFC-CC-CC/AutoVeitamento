@@ -104,11 +104,19 @@ class EditorConfiguracao extends Component {
 			const dateString = currentDate.getDate() + "-" + (currentDate.getMonth()+1) + "-"+currentDate.getFullYear() + "-" + currentDate.getTime();
 			fs.mkdir(`./Backups/${dateString}`, err => {
 				if(err){
-					return alert("Can't create directory!");
+					alert(`Ocorreu um erro desconhecido ao criar o diretório para o backup!\n
+						Por favor, informe ao suporte essa ocorrência, agradecemos a sua participação.\n
+						Código do erro: ${err.code}\n
+						Mensagem do erro: ${err.message}`);
+					return;
 				}
 				ncp("./src/database/",`./Backups/${dateString}`, err =>  {
 					if (err) {
-					  return alert("Can't copy directory!");
+					  alert(`Ocorreu um erro desconhecido ao copiaros arquivos do backup!\n
+						Por favor, informe ao suporte essa ocorrência, agradecemos a sua participação.\n
+						Código do erro: ${err.code}\n
+						Mensagem do erro: ${err.message}`);
+					return;
 					}
 					
 					this.props.updateFile({

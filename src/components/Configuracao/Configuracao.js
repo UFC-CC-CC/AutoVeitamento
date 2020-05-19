@@ -25,16 +25,33 @@ class Configuracao extends Component{
 		
 		const dateString = currentDate.getDate() + "-" + (currentDate.getMonth()+1) + "-"+currentDate.getFullYear() + "-" + currentDate.getTime();
 		
-		if(!fs.existsSync(`./Backups/`)){
-            fs.mkdirSync(`./Backups/`);
-        }	
+		try{
+			if(!fs.existsSync(`./Backups/`)){
+	            fs.mkdirSync(`./Backups/`);
+	        }		
+		}
+		catch(err){
+			alert(`Ocorreu um erro desconhecido ao criar o diretório para o backup!\n
+				Por favor, informe ao suporte essa ocorrência, agradecemos a sua participação.\n
+				Código do erro: ${err.code}\n
+				Mensagem do erro: ${err.message}`);
+			return;
+		}
 		fs.mkdir(`./Backups/${dateString}`, err => {
 				if(err){
-					alert("Can't create directory!");
+					alert(`Ocorreu um erro desconhecido ao criar o diretório para o backup!\n
+						Por favor, informe ao suporte essa ocorrência, agradecemos a sua participação.\n
+						Código do erro: ${err.code}\n
+						Mensagem do erro: ${err.message}`);
+					return;
 				}
 				ncp("./src/database/",`./Backups/${dateString}`, err =>  {
 					if (err) {
-					  alert("Can't copy directory!");
+					  alert(`Ocorreu um erro desconhecido ao copiar os arquivos do backup!\n
+						Por favor, informe ao suporte essa ocorrência, agradecemos a sua participação.\n
+						Código do erro: ${err.code}\n
+						Mensagem do erro: ${err.message}`);
+					  return;
 					}
 					
 					this.props.updateFile({

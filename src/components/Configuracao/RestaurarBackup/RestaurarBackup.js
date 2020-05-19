@@ -88,7 +88,7 @@ class RestaurarBackup extends Component {
 
 
     restoreBackup = () => {
-    	alert("This will perform the backup for you now!");
+    	alert("O backup será restaurado agora, por favor, aguarde.");
 
         let copyFile = (copyPath, fileName) => {
             const electron = window.require('electron');
@@ -96,7 +96,12 @@ class RestaurarBackup extends Component {
 
             fs.copyFile(`${copyPath}${fileName}`, `src/database/${fileName}`, (err) => {
                 if(err)
-                    alert(`Error ocurred while copying ${fileName} !\nCODE:${err.code}\nMESSAGE:${err.message}`);
+                    alert(`Ocorreu um erro desconhecido ao copiar um arquivo!\n
+						Por favor, informe ao suporte essa ocorrência, agradecemos a sua participação.\n
+						Arquivo a ser copiado: ${fileName}\n
+						Código do erro: ${err.code}\n
+						Mensagem do erro: ${err.message}`);
+					return;
             }); 
         }
 
