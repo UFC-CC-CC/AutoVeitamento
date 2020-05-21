@@ -2,6 +2,13 @@
 Aplicativo para Gerenciar e Gerar Relatórios de Aproveitamento de Estudos em Instituições de Ensino
 
 
+## Exemplo de uso:
+
+Veja um exemplo de uso do programa neste vídeo:
+
+https://drive.google.com/file/d/1Nk1drlag82oeQzU69rh4vWxvFg4D8Gth/view?usp=sharing
+
+
 ## Intruções de Instalação:
 
 Antes de instalar esse programa, vale lembrar que esse programa possui alguns pré-requisitos para ser executado, sendo eles:
