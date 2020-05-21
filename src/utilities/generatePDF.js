@@ -150,11 +150,17 @@ const pdfGen = {
             alert(e.message)
             alert(e.code)
         }
-        const output = fs.createWriteStream(`./Relatorios Gerados/${dateString}/${output_file}${currentDate.getTime()}.pdf`);
-        const pdf = latex(latex_text, {passes: 2});
-        pdf.pipe(output);
-        pdf.on('error', err => alert(err));
-        pdf.on('finish', () => null);
+
+        try{
+            const output = fs.createWriteStream(`./Relatorios Gerados/${dateString}/${output_file}${currentDate.getTime()}.pdf`);
+            const pdf = latex(latex_text, {passes: 2});
+            pdf.pipe(output);
+            pdf.on('error', err => alert("Ocorreu um erro ao gerar o seu relatório! Por favor, verifique se o seu computador possui uma versão do LaTeX instalado."));
+            pdf.on('finish', () => null);
+        }
+        catch(e){
+            alert("Ocorreu um erro ao gerar o seu relatório! Por favor, verifique se o seu computador possui uma versão do LaTeX instalado.")
+        }
     }
 }
 

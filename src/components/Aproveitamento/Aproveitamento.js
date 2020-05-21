@@ -664,7 +664,7 @@ class Aproveitamento extends Component {
 
 
         if(this.state.inst && this.props.blocosSelect[this.state.inst.value])
-            for(let i = 0; i < originFields.length; i++){
+            for(let i = 0; i < this.state.blocks.length; i++){
                 let label;
                 this.props.blocosSelect[this.state.inst.value].map((curr)=>{
                     if(curr.value == blocosIds[i])
