@@ -671,8 +671,17 @@ class Aproveitamento extends Component {
                         label = curr.label;
                 });
 
+                // Não sincronia
+                if(blocosIds.length != this.state.blocks.length){
+                    return this.render();
+                }
+
                 let blocoAtual = this.props.blocosData[this.state.inst.value][blocosIds[i]];
 
+                // Não sincronia
+                if(!blocoAtual.data){
+                    return this.render();
+                }
 
                 renderedComponents.push(
                 <Fade in={true}>
@@ -735,7 +744,7 @@ class Aproveitamento extends Component {
 
         );}
 
-        
+
         return(
             <div>
                 <div style={{textAlign: "left", margin: "40px 100px 100px 100px"}}>

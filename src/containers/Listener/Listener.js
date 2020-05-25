@@ -15,6 +15,7 @@ const listener = (props) =>{
 
 	fs.watchFile('./src/database/alunosData.json', {interval: 10},(curr, prev) => {
 		props.onFileChangeHandler('alunosData');
+		props.getStack();
 	});
 
 	fs.watchFile('./src/database/unidadesSelect.json', {interval: 10},(curr, prev) => {
@@ -23,6 +24,7 @@ const listener = (props) =>{
 
 	fs.watchFile('./src/database/unidadesData.json', {interval: 10},(curr, prev) => {
 		props.onFileChangeHandler('unidadesData');
+		props.getStack();
 	});
 
 	fs.watchFile('./src/database/instituicoesSelect.json', {interval: 10},(curr, prev) => {
@@ -31,6 +33,7 @@ const listener = (props) =>{
 
 	fs.watchFile('./src/database/instituicoesData.json', {interval: 10},(curr, prev) => {
 		props.onFileChangeHandler('instituicoesData');
+		props.getStack();
 	});
 
 	fs.watchFile('./src/database/professoresSelect.json', {interval: 10},(curr, prev) => {
@@ -39,6 +42,7 @@ const listener = (props) =>{
 
 	fs.watchFile('./src/database/professoresData.json', {interval: 10},(curr, prev) => {
 		props.onFileChangeHandler('professoresData');
+		props.getStack();
 	});
 
 	fs.watchFile('./src/database/disciplinasSelect.json', {interval: 10},(curr, prev) => {
@@ -47,6 +51,7 @@ const listener = (props) =>{
 
 	fs.watchFile('./src/database/disciplinasData.json', {interval: 10},(curr, prev) => {
 		props.onFileChangeHandler('disciplinasData');
+		props.getStack();
 	});
 
 	fs.watchFile('./src/database/blocosSelect.json', {interval: 10},(curr, prev) => {
@@ -55,6 +60,7 @@ const listener = (props) =>{
 
 	fs.watchFile('./src/database/blocosData.json', {interval: 10},(curr, prev) => {
 		props.onFileChangeHandler('blocosData');
+		props.getStack();
 	});
 
 	fs.watchFile('./src/database/cidadesSelect.json', {interval: 10},(curr, prev) => {
@@ -63,6 +69,7 @@ const listener = (props) =>{
 
 	fs.watchFile('./src/database/cidadesData.json', {interval: 10},(curr, prev) => {
 		props.onFileChangeHandler('cidadesData');
+		props.getStack();
 	});
 
 	fs.watchFile('./src/database/cursosSelect.json', {interval: 10},(curr, prev) => {
@@ -71,20 +78,23 @@ const listener = (props) =>{
 
 	fs.watchFile('./src/database/cursosData.json', {interval: 10},(curr, prev) => {
 		props.onFileChangeHandler('cursosData');
+		props.getStack();
 	});
 
 	fs.watchFile('./src/database/aproveitamentosData.json', {interval: 10},(curr, prev) => {
 		props.onFileChangeHandler('aproveitamentosData');
+		props.getStack();
 	});
 
 	fs.watchFile('./src/database/aproveitamentosSelect.json', {interval: 10},(curr, prev) => {
 		props.onFileChangeHandler('aproveitamentosSelect');
 	});
 
+/*
 	fs.watchFile('./src/database/stack.json', {interval: 10},(curr, prev) => {
 		props.getStack();
 	});
-
+*/
 	fs.watchFile('./src/database/newDataContainer.json', {interval: 10},(curr, prev) => {
 		props.onNewDataHandler();
 	});
