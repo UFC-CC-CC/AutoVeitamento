@@ -186,7 +186,7 @@ class Sessions extends Component {
                             <CardContent>
                             <Typography variant="h5"> Data: </Typography>
                             <Typography>
-                            {dateUtils.getRawStringWithHours(this.state.sessionData.id)}
+                            {this.state.sessionData.state.date}
                             </Typography>
                             </CardContent>
                     </Card>

@@ -41,6 +41,9 @@ class Aproveitamento extends Component {
         window.scrollTo(0, 0)
         if(this.state.initialDate == null && this.props.location&&this.props.location.state&&this.props.location.state.carriedState){
             this.setState(this.props.location.state.carriedState);
+            this.setState({
+                date: this.props.location.state.carriedState.date
+            })
             if(this.props.location.state.carriedState.inst){
                 this.props.updateSelectedInst({data: this.props.location.state.carriedState.inst});
             }
@@ -54,9 +57,12 @@ class Aproveitamento extends Component {
 
         }
         else{
-            this.setState({
-                initialDate: new Date().getTime()
-            })
+            if(this.state.initialDate == null){
+                this.setState({
+                    initialDate: new Date().getTime()
+                })    
+            }
+            
         }
     }
 
@@ -123,7 +129,8 @@ class Aproveitamento extends Component {
         let alunoLabel = (this.state.aluno?this.state.aluno.label:"Aluno não definido");
         let instLabel = (this.state.inst?this.state.inst.value:"Instituição não definida");
         let data = new Date();
-        let dataLabel = `${data.getDate() < 10? "0"+(data.getDate()) : data.getDate()}/${data.getMonth()+1 < 10 ? "0"+(data.getMonth()+1) : data.getMonth()+1}/${data.getFullYear()} ${data.getHours()}:${data.getMinutes() < 10 ? "0"+data.getMinutes() : data.getMinutes()}`
+        let stateDate = new Date(this.state.date);
+        let dataLabel = `${this.state.date.split('-')[2]}/${this.state.date.split('-')[1]}/${this.state.date.split('-')[0]} ${data.getHours()}:${data.getMinutes() < 10 ? "0"+data.getMinutes() : data.getMinutes()}`
         let savedState = {
             aluno: this.state.aluno?this.state.aluno.value:null,
             inst: this.state.inst?this.state.inst.value:null,
@@ -265,7 +272,6 @@ class Aproveitamento extends Component {
                             });
             }
             catch(e){
-                //alert("Error on aproveitamento. That one >:(")
                 setTimeout(()=>this.blockHandler(data, callback),500);
             }
 
@@ -292,6 +298,8 @@ class Aproveitamento extends Component {
 
     autoFillHours = () => {
 
+        if(!this.state.shouldAutoFill) return
+
         let tempState = {...this.state}
 
         for(let j in this.state.origin){
@@ -304,7 +312,8 @@ class Aproveitamento extends Component {
             sumOrigin = Number(sumOrigin/Object.keys(this.state.destiny[j]).length).toFixed(0);
                 
             for(let i in this.state.destiny[j]){
-                tempState.destiny[j][i].horasApr = sumOrigin
+                if(!tempState.destiny[j][i].horasApr)
+                    tempState.destiny[j][i].horasApr = sumOrigin
             }
         }
     
@@ -329,9 +338,9 @@ class Aproveitamento extends Component {
         preprocessedData.numeroProcesso = aprData.processo;
 
         preprocessedData.cidade = this.props.cidadesData[aprData.cidade].nome;
-        preprocessedData.dia = data.getDate();
-        preprocessedData.mes = meses[data.getMonth()];
-        preprocessedData.ano = data.getFullYear();
+        preprocessedData.dia = this.state.date.split('-')[2];
+        preprocessedData.mes = meses[Number(this.state.date.split('-')[1]) - 1];
+        preprocessedData.ano = this.state.date.split('-')[0];
 
         preprocessedData.cargo = aprData.cargo;
 
@@ -481,7 +490,7 @@ class Aproveitamento extends Component {
                 coordenador: this.props.configuracoes.coordenadorSelect.value,
                 cargo: this.state.cargo.label,
                 processo: this.state.processo,
-                label: `${this.state.aluno.label} (${this.state.inst.value}) em ${data.getDate() < 10? "0"+(data.getDate()) : data.getDate()}/${data.getMonth()+1 < 10 ? "0"+(data.getMonth()+1) : data.getMonth()+1}/${data.getFullYear()} às ${data.getHours()}:${data.getMinutes() < 10 ? "0"+data.getMinutes() : data.getMinutes()}`,
+                label: `${this.state.aluno.label} (${this.state.inst.value}) em ${this.state.date.split('-')[2]}/${this.state.date.split('-')[1]}/${this.state.date.split('-')[0]} às ${data.getHours()}:${data.getMinutes() < 10 ? "0"+data.getMinutes() : data.getMinutes()}`,
                 initialDate: this.state.initialDate
             },
             type: 'data',
@@ -493,7 +502,7 @@ class Aproveitamento extends Component {
         this.props.updateFile({
             name: 'aproveitamentosSelect',
             data: {
-                label: `${this.state.aluno.label} (${this.state.inst.value}) em ${data.getDate() < 10? "0"+(data.getDate()) : data.getDate()}/${data.getMonth()+1 < 10 ? "0"+(data.getMonth()+1) : data.getMonth()+1}/${data.getFullYear()} às ${data.getHours()}:${data.getMinutes() < 10 ? "0"+data.getMinutes() : data.getMinutes()}`,
+                label: `${this.state.aluno.label} (${this.state.inst.value}) em ${this.state.date.split('-')[2]}/${this.state.date.split('-')[1]}/${this.state.date.split('-')[0]} às ${data.getHours()}:${data.getMinutes() < 10 ? "0"+data.getMinutes() : data.getMinutes()}`,
                 value: this.state.initialDate
             },
             type: 'select'

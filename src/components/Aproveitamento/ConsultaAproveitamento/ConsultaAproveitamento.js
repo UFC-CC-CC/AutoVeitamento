@@ -45,9 +45,10 @@ class ConsultaAproveitamento extends Component {
         preprocessedData.numeroProcesso = aprData.processo;
 
         preprocessedData.cidade = this.props.cidadesData[aprData.cidade].nome;
-        preprocessedData.dia = data.getDate();
-        preprocessedData.mes = meses[data.getMonth()];
-        preprocessedData.ano = data.getFullYear();
+        
+        preprocessedData.dia = aprData.data.split('-')[2];
+        preprocessedData.mes = meses[Number(aprData.data.split('-')[1]) - 1];
+        preprocessedData.ano = aprData.data.split('-')[0];
 
         preprocessedData.cargo = aprData.cargo;
 
@@ -58,14 +59,14 @@ class ConsultaAproveitamento extends Component {
 		for(let i in aprData.originState){
 			preprocessedData.origin[i] = [];
 			for(let j in aprData.originState[i]){
-				preprocessedData.origin[i].push(`& ${aprData.originState[i][j].semestre} & ${j} ${this.props.disciplinasData[aprData.inst][j].nome} ${Number(aprData.originState[i][j].nota).toFixed(1)} & ${this.props.disciplinasData[aprData.inst][j].horas} h\n`);
+				preprocessedData.origin[i].push(`& ${aprData.originState[i][j].semestre} & ${j} ${this.props.disciplinasData[aprData.inst][j].nome} & ${Number(aprData.originState[i][j].nota).toFixed(1)} & ${this.props.disciplinasData[aprData.inst][j].horas} h\n`);
 			}
 		}
 
 		for(let i in aprData.destinyState){
 			preprocessedData.destiny[i] = [];
 			for(let j in aprData.destinyState[i]){
-				preprocessedData.destiny[i].push(`& ${j} ${this.props.disciplinasData[aprData.instDestino][j].nome} & & ${Number(aprData.destinyState[i][j].nota).toFixed(1)}\n& \\hspace{0,3cm} ${aprData.destinyState[i][j].horasApr} h\n`);
+				preprocessedData.destiny[i].push(`& ${j} ${this.props.disciplinasData[aprData.instDestino][j].nome} & ${Number(aprData.destinyState[i][j].nota).toFixed(1)}\n& \\hspace{0,3cm} ${aprData.destinyState[i][j].horasApr} h\n`);
 			}
 		}
 
@@ -74,7 +75,7 @@ class ConsultaAproveitamento extends Component {
 
 	generateReport = () => {
 		try{
-            pdfGen.generateTestPDF(this.preprocessDataForPDF(),this.state.aluno.value+"-"+this.state.inst.value+"-")    
+			pdfGen.generateTestPDF(this.preprocessDataForPDF(),this.state.carriedState.aluno.value+"-"+this.state.carriedState.inst.value+"-")    
             alert("Relatório gerado!\nEstá disponível na pasta 'Relatórios Gerados', dentro da pasta da aplicação.");
         }
         catch(e){
@@ -131,7 +132,7 @@ class ConsultaAproveitamento extends Component {
 			blocks: [],
 			origin: {},
 			destiny: {},
-			date: null,
+			date: data,
 			obs: aprData.obs,
 			cargo: null,
 			professor: null,
@@ -180,7 +181,7 @@ class ConsultaAproveitamento extends Component {
 
 		if(this.state.carriedState){
 			let initialDate = new Date(this.state.carriedState.initialDate);
-			let data = initialDate.getDate() + "/" +(initialDate.getMonth()+1)+"/"+initialDate.getFullYear() + " às " + initialDate.getHours() +":"+(initialDate.getMinutes() < 10 ? "0"+initialDate.getMinutes():initialDate.getMinutes());
+			let data = this.state.data.split('-')[2] + "/" +this.state.data.split('-')[1]+"/"+this.state.data.split('-')[0] + " às " + initialDate.getHours() +":"+(initialDate.getMinutes() < 10 ? "0"+initialDate.getMinutes():initialDate.getMinutes());
 			let aprData = {...this.props.aproveitamentosData[this.state.aproveitamento.value]};
 
 			let cpf = this.props.alunosData[aprData.aluno].cpf;

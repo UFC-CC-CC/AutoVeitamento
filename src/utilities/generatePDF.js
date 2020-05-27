@@ -1,5 +1,3 @@
-
-
 const pdfGen = {
     generateTestPDF: function(state, output_file){
 
@@ -112,7 +110,6 @@ const pdfGen = {
         \\\\ \\hline \\hline
         \\endhead % FIM DO CABEÇALHO DA TABELA (IRÁ REPETIR EM TODA PÁGINA)
         % AQUI COMEÇAM OS BLOCOS
-
         ${blocks_string}
        
         \\end{longtable}
@@ -131,7 +128,7 @@ const pdfGen = {
         `;
 
         const electron = window.require('electron');
-	    const fs = electron.remote.require('fs');
+        const fs = electron.remote.require('fs');
         const latex = electron.remote.require('node-latex');
         const currentDate = new Date(new Date().getTime() - 10800000);
 
@@ -151,16 +148,12 @@ const pdfGen = {
             alert(e.code)
         }
 
-        try{
-            const output = fs.createWriteStream(`./Relatorios Gerados/${dateString}/${output_file}${currentDate.getTime()}.pdf`);
-            const pdf = latex(latex_text, {passes: 2});
-            pdf.pipe(output);
-            pdf.on('error', err => alert("Ocorreu um erro ao gerar o seu relatório! Por favor, verifique se o seu computador possui uma versão do LaTeX instalado."));
-            pdf.on('finish', () => null);
-        }
-        catch(e){
-            alert("Ocorreu um erro ao gerar o seu relatório! Por favor, verifique se o seu computador possui uma versão do LaTeX instalado.")
-        }
+        const output = fs.createWriteStream(`./Relatorios Gerados/${dateString}/${output_file}${currentDate.getTime()}.pdf`);
+        const pdf = latex(latex_text, {passes: 2});
+        pdf.pipe(output);
+        pdf.on('error', err => alert(err.message));
+        pdf.on('finish', () => null);
+        
     }
 }
 
