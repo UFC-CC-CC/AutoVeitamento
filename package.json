@@ -7,7 +7,7 @@
     "@material-ui/icons": "^4.5.1",
     "acorn": "^6.4.1",
     "concurrently": "^4.1.0",
-    "electron": "^4.1.4",
+    "electron": "^7.2.4",
     "electron-builder": "^20.39.0",
     "electron-is-dev": "^1.1.0",
     "handlebars": "^4.3.0",
