@@ -13,7 +13,7 @@
     "handlebars": "^4.3.0",
     "jspdf": "^1.5.3",
     "kind-of": "^6.0.3",
-    "minimist": "^1.2.3",
+    "minimist": "^1.2.6",
     "ncp": "^2.0.0",
     "node-latex": "^2.6.2",
     "react": "^16.8.6",
