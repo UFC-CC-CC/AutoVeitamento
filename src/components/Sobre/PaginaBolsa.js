@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-export default class PaginaCriador extends Component {
+export default class PaginaBolsa extends Component {
   componentDidMount() {
     window.require("electron").remote.getCurrentWindow().maximize();
-    window.location.assign("https://github.com/JsBatista/");
+    window.location.assign("https://prograd.ufc.br/pt/bolsas/bolsas-de-apoio-a-projetos-de-graduacao/");
   }
   render() {
     return (

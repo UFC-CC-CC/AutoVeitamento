@@ -44,6 +44,11 @@ import ConsultaCidade from "../Consulta/ConsultaCidade/ConsultaCidade";
 import ConsultaUnidade from "../Consulta/ConsultaUnidade/ConsultaUnidade";
 import ConsultaProfessor from "../Consulta/ConsultaProfessor/ConsultaProfessor";
 import RestaurarBackup from "../Configuracao/RestaurarBackup/RestaurarBackup";
+import PaginaBolsa from "../Sobre/PaginaBolsa";
+import PaginaEdital from "../Sobre/PaginaEdital";
+import PaginaPAIP from "../Sobre/PaginaPAIP";
+import PaginaProReitoria from "../Sobre/PaginaProReitoria";
+import PaginaUFC from "../Sobre/PaginaUFC";
 
 
 export default class Router extends Component {
@@ -92,6 +97,13 @@ export default class Router extends Component {
                     <Route path="/consultaCidade/" component={ConsultaCidade} />
                     <Route path="/consultaUnidade/" component={ConsultaUnidade} />
                     <Route path="/consultaProfessor/" component={ConsultaProfessor} />
+                    <Route path="/webView/criador" component={PaginaCriador} />
+                    <Route path="/webView/bolsa" component={PaginaBolsa} />
+                    <Route path="/webView/edital" component={PaginaEdital} />
+                    <Route path="/webView/paip" component={PaginaPAIP} />
+                    <Route path="/webView/proReitoria" component={PaginaProReitoria} />
+                    <Route path="/webView/ufc" component={PaginaUFC} />
+                    
                     <Route component={Error404} />
                 </Switch>
         );
